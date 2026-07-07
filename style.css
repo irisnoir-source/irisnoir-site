@@ -195,13 +195,6 @@ h2 {
 }
 .card:hover { border-color: rgba(201,168,106,0.45); transform: translateY(-4px); }
 .card-featured { border-color: var(--gold); }
-.card-num {
-  font-family: var(--serif);
-  font-size: 1rem;
-  color: var(--gold);
-  letter-spacing: 0.2em;
-  margin-bottom: 1rem;
-}
 .card h3 {
   font-family: var(--serif);
   font-weight: 600;
