@@ -77,6 +77,19 @@ body {
     var(--noir);
 }
 .hero-inner { max-width: 900px; padding: 0 6vw; }
+.hero-logo {
+  width: min(420px, 72vw);
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+.sr-only {
+  position: absolute;
+  width: 1px; height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
 .hero-eyebrow {
   font-size: 0.78rem;
   letter-spacing: 0.35em;
