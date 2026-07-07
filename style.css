@@ -76,6 +76,7 @@ body {
     radial-gradient(ellipse 90% 60% at 50% 110%, rgba(201,168,106,0.08), transparent 60%),
     var(--noir);
 }
+.hero-inner { max-width: 900px; padding: 0 6vw; }
 .hero-eyebrow {
   font-size: 0.78rem;
   letter-spacing: 0.35em;
