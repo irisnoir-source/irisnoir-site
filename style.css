@@ -210,6 +210,23 @@ h2 {
   margin-bottom: 0.6rem;
 }
 
+/* Products (store) */
+.products-grid { align-items: stretch; }
+.product-card { display: flex; flex-direction: column; }
+.product-thumb {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  margin-bottom: 1.2rem;
+  border: 1px solid rgba(201,168,106,0.2);
+}
+.product-card .btn { margin-top: auto; align-self: flex-start; padding-top: 0.85rem; }
+.product-card-soon {
+  opacity: 0.55;
+  border-style: dashed;
+}
+.product-card-soon:hover { transform: none; border-color: rgba(201,168,106,0.12); }
+
 /* Portfolio */
 .portfolio-grid {
   display: grid;
