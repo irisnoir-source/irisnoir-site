@@ -259,12 +259,20 @@ h2 {
 
 /* Footer */
 .footer {
-  padding: 2.5rem 6vw;
+  padding: 3.5rem 6vw 2.5rem;
   text-align: center;
   font-size: 0.78rem;
   letter-spacing: 0.15em;
   color: var(--text-dim);
   border-top: 1px solid rgba(201,168,106,0.1);
+  background: radial-gradient(ellipse 50% 80% at 50% 100%, rgba(75,42,107,0.18), transparent 70%);
+}
+.footer-logo {
+  width: min(180px, 40vw);
+  height: auto;
+  display: block;
+  margin: 0 auto 1.2rem;
+  opacity: 0.9;
 }
 
 /* Mobile */
