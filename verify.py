@@ -34,7 +34,9 @@ def main() -> int:
 
     ids = set(re.findall(r'id="([^"]+)"', html))
     fails += [f"broken anchor #{h}" for h in re.findall(r'href="#([^"]+)"', html) if h not in ids]
-    fails += [f"missing asset {s}" for s in re.findall(r'(?:src|href)="((?!https?:|mailto:|#)[^"]+)"', html)
+    # strip <script> blocks so dynamic JS string literals aren't scanned as static assets
+    scanless = re.sub(r"<script\b[^>]*>.*?</script>", "", html, flags=re.DOTALL | re.IGNORECASE)
+    fails += [f"missing asset {s}" for s in re.findall(r'(?:src|href)="((?!https?:|mailto:|#)[^"]+)"', scanless)
               if not (ROOT / s).exists()]
 
     if css.count("{") != css.count("}"):

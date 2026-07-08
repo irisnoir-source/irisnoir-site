@@ -69,17 +69,14 @@
           </div>
         </div>
         <div class="showcase-media">
-          <figure class="media-video">
-            <video controls playsinline preload="none" poster="assets/portfolio/aurey-jump-ai-poster.jpg">
-              <source src="assets/portfolio/aurey-jump-ai.mp4" type="video/mp4">
-              Your browser doesn't support embedded video.
-            </video>
-            <figcaption>Aurey leaping to catch the ball <span class="ai-tag">AI-generated</span></figcaption>
-          </figure>
-          <figure class="media-photo">
+          <button type="button" class="gallery-hero" data-gallery="aurey" aria-label="Open Aurelius gallery — 4 videos and photos">
             <img src="assets/portfolio/aurey-doodwoof-ai.jpg" alt="Aurelius posed beside the Doodle Detangler Spray bottle by Dood Woof" loading="lazy">
-            <figcaption>Doodle Detangler Spray by <a href="https://www.tiktok.com/@doodwoofco" target="_blank" rel="noopener">Dood Woof</a> <span class="ai-tag">AI-generated</span></figcaption>
-          </figure>
+            <span class="gallery-hero-overlay">
+              <span class="gallery-hero-icon" aria-hidden="true">&#9654;</span>
+              <span class="gallery-hero-label">View Aurey's reel</span>
+              <span class="gallery-hero-count">4 videos &amp; photos</span>
+            </span>
+          </button>
         </div>
         <p class="showcase-shop">Featured toy: <a href="https://www.walmart.com/ip/QDAN-Durable-Dog-Toys-Soccer-Ball-with-Nylon-Straps-Hand-Pump-for-Puppies-Medium-Large-Dogs-6-inch/5572844175" target="_blank" rel="noopener">QDAN Durable Dog Soccer Ball</a> <span class="shop-price">$16.88 · Walmart</span></p>
         <p class="showcase-note">Real dog, real product — AI-composed from my own photos. Concept-to-ad content, no shoot day required.</p>
@@ -201,6 +198,81 @@
   <img class="footer-logo" src="assets/irisnoir-logo-transparent.png" alt="IrisNoir — iris flower logo" width="1024" height="1024" loading="lazy">
   <p>© 2026 IrisNoir · Boston, MA</p>
 </footer>
+
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Aurelius gallery" hidden>
+  <button type="button" class="lightbox-close" aria-label="Close gallery">&times;</button>
+  <div class="lightbox-stage" id="lightbox-stage"></div>
+  <p class="lightbox-caption" id="lightbox-caption"></p>
+  <div class="lightbox-thumbs" id="lightbox-thumbs"></div>
+</div>
+
+<script id="gallery-aurey" type="application/json">
+[
+  {"type":"video","src":"assets/portfolio/aurey-jump-ai.mp4","poster":"assets/portfolio/aurey-jump-ai-poster.jpg","caption":"Aurey leaping to catch the ball","tag":"AI-generated"},
+  {"type":"image","src":"assets/portfolio/aurey-doodwoof-ai.jpg","caption":"Beside the Doodle Detangler Spray by Dood Woof","tag":"AI-generated"},
+  {"type":"video","src":"assets/portfolio/aurey-ball-play.mp4","poster":"assets/portfolio/aurey-ball-poster.jpg","caption":"Aurey playing with his ball at home","tag":"Real footage"},
+  {"type":"image","src":"assets/portfolio/aurey-doodwoof.jpg","caption":"Sniffing the Dood Woof spray — real candid","tag":"Real photo"}
+]
+</script>
+
+<script>
+(function () {
+  var lb = document.getElementById("lightbox");
+  var stage = document.getElementById("lightbox-stage");
+  var caption = document.getElementById("lightbox-caption");
+  var thumbs = document.getElementById("lightbox-thumbs");
+  var lastFocus = null;
+
+  function itemsFor(name) {
+    var el = document.getElementById("gallery-" + name);
+    return el ? JSON.parse(el.textContent) : [];
+  }
+
+  function render(items, i) {
+    var it = items[i];
+    stage.innerHTML = it.type === "video"
+      ? '<video controls autoplay playsinline poster="' + it.poster + '"><source src="' + it.src + '" type="video/mp4"></video>'
+      : '<img src="' + it.src + '" alt="' + it.caption + '">';
+    caption.innerHTML = it.caption + ' <span class="ai-tag">' + it.tag + '</span>';
+    Array.prototype.forEach.call(thumbs.children, function (t, n) {
+      t.classList.toggle("is-active", n === i);
+    });
+  }
+
+  function open(name) {
+    var items = itemsFor(name);
+    if (!items.length) return;
+    thumbs.innerHTML = "";
+    items.forEach(function (it, n) {
+      var b = document.createElement("button");
+      b.type = "button";
+      b.className = "lightbox-thumb";
+      b.innerHTML = '<img src="' + (it.poster || it.src) + '" alt="' + it.caption + '">'
+                  + (it.type === "video" ? '<span class="lightbox-thumb-play" aria-hidden="true">&#9654;</span>' : '');
+      b.addEventListener("click", function () { render(items, n); });
+      thumbs.appendChild(b);
+    });
+    render(items, 0);
+    lastFocus = document.activeElement;
+    lb.hidden = false;
+    document.body.style.overflow = "hidden";
+  }
+
+  function close() {
+    lb.hidden = true;
+    stage.innerHTML = "";
+    document.body.style.overflow = "";
+    if (lastFocus) lastFocus.focus();
+  }
+
+  document.querySelectorAll(".gallery-hero").forEach(function (h) {
+    h.addEventListener("click", function () { open(h.getAttribute("data-gallery")); });
+  });
+  lb.querySelector(".lightbox-close").addEventListener("click", close);
+  lb.addEventListener("click", function (e) { if (e.target === lb) close(); });
+  document.addEventListener("keydown", function (e) { if (e.key === "Escape" && !lb.hidden) close(); });
+})();
+</script>
 
 </body>
 </html>
