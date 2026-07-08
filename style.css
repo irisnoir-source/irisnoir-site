@@ -304,7 +304,6 @@ h2 {
 }
 @media (max-width: 760px) {
   .showcase-media { grid-template-columns: 1fr; }
-  .media-video video, .media-photo img { max-height: 480px; }
 }
 
 /* Contact */
