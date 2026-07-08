@@ -417,6 +417,9 @@ h2 {
   outline: none;
 }
 .gallery-hero img { display: block; width: 100%; height: 440px; object-fit: cover; }
+/* Wide (landscape) hero — show the full frame, no crop; noir letterbox fills any gap */
+.gallery-hero-wide { max-width: 620px; }
+.gallery-hero-wide img { height: auto; object-fit: contain; }
 .gallery-hero-overlay {
   position: absolute;
   inset: 0;
