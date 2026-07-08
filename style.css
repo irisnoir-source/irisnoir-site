@@ -1,14 +1,16 @@
-/* IrisNoir — noir & gold brand kit */
+/* IrisNoir — noir, iris & gold brand kit */
 :root {
-  --noir: #0a0a0c;
-  --noir-2: #121216;
-  --noir-3: #1a1a20;
+  --noir: #0d0a12;
+  --noir-2: #16121d;
+  --noir-3: #1e1926;
   --cream: #ecdcc3;
   --gold: #c9a86a;
   --gold-bright: #e0c48f;
-  --iris: #4b2a6b;
+  --iris: #6d4a94;
+  --iris-soft: #8a63b0;
+  --iris-deep: #4b2a6b;
   --text: #d8d4cc;
-  --text-dim: #8f8b84;
+  --text-dim: #9a90a4;
   --serif: 'Cormorant Garamond', Georgia, serif;
   --sans: 'Inter', -apple-system, sans-serif;
 }
@@ -70,7 +72,8 @@ body {
   display: flex;
   align-items: center;
   background:
-    radial-gradient(ellipse 60% 45% at 72% 40%, rgba(75,42,107,0.35), transparent 70%),
+    radial-gradient(ellipse 60% 45% at 72% 40%, rgba(138,99,176,0.42), transparent 70%),
+    radial-gradient(ellipse 80% 55% at 15% 80%, rgba(109,74,148,0.22), transparent 65%),
     radial-gradient(ellipse 90% 60% at 50% 110%, rgba(201,168,106,0.08), transparent 60%),
     var(--noir);
 }
@@ -154,7 +157,11 @@ body {
 
 /* Sections */
 .section { padding: 7rem 6vw; }
-.section-dark { background: var(--noir-2); }
+.section-dark {
+  background:
+    radial-gradient(ellipse 70% 50% at 85% 0%, rgba(109,74,148,0.16), transparent 60%),
+    var(--noir-2);
+}
 .container { max-width: 1080px; margin: 0 auto; }
 .split {
   display: grid;
@@ -368,7 +375,7 @@ h2 {
   letter-spacing: 0.15em;
   color: var(--text-dim);
   border-top: 1px solid rgba(201,168,106,0.1);
-  background: radial-gradient(ellipse 50% 80% at 50% 100%, rgba(75,42,107,0.18), transparent 70%);
+  background: radial-gradient(ellipse 50% 80% at 50% 100%, rgba(138,99,176,0.20), transparent 70%);
 }
 .footer-logo {
   width: min(180px, 40vw);
