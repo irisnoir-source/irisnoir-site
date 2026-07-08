@@ -328,6 +328,10 @@ h2 {
   text-align: center;
 }
 .showcase-note { color: var(--text-dim); font-size: 0.82rem; margin-top: 1.1rem; font-style: italic; }
+.showcase-shop { margin-top: 1.4rem; font-size: 0.9rem; color: var(--text); }
+.showcase-shop a { color: var(--gold-bright); text-decoration: none; border-bottom: 1px solid rgba(224,196,143,0.4); }
+.showcase-shop a:hover { border-bottom-color: var(--gold-bright); }
+.shop-price { color: var(--text-dim); font-size: 0.8rem; margin-left: 0.4rem; }
 .ai-tag {
   display: inline-block;
   margin-left: 0.5rem;
