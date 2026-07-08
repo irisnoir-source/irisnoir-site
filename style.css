@@ -328,6 +328,17 @@ h2 {
   text-align: center;
 }
 .showcase-note { color: var(--text-dim); font-size: 0.82rem; margin-top: 1.1rem; font-style: italic; }
+.ai-tag {
+  display: inline-block;
+  margin-left: 0.5rem;
+  padding: 0.12rem 0.5rem;
+  font-size: 0.6rem;
+  letter-spacing: 0.14em;
+  border: 1px solid rgba(201,168,106,0.45);
+  border-radius: 2px;
+  color: var(--gold-bright);
+  vertical-align: middle;
+}
 @media (max-width: 760px) {
   .showcase-media { grid-template-columns: 1fr; }
   .media-video video, .media-photo img { max-height: 480px; }
