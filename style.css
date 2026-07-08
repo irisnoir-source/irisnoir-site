@@ -214,12 +214,6 @@ h2 {
   text-transform: uppercase;
   color: var(--text-dim);
 }
-.bio-people {
-  grid-column: 1 / -1;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1.8rem;
-}
 .bio-card {
   border: 1px solid rgba(201,168,106,0.18);
   border-radius: 6px;
@@ -391,7 +385,7 @@ h2 {
   .hero-img { display: none; }
   .split { grid-template-columns: 1fr; gap: 1.5rem; }
   .section { padding: 4.5rem 7vw; }
-  .bio, .bio-people { grid-template-columns: 1fr; }
+  .bio { grid-template-columns: 1fr; }
 }
 
 /* Gallery hero thumbnail */
