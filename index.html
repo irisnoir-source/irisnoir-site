@@ -52,10 +52,14 @@
   </div>
 
   <div class="container bio">
-    <figure class="bio-portrait">
+    <button type="button" class="bio-portrait gallery-hero" data-gallery="bio" aria-label="Play the IrisNoir & Aurelius moment">
       <img src="assets/about/jena-aurey-noir.jpg" alt="Jena and Aurelius in a noir-styled study with irises" loading="lazy">
+      <span class="gallery-hero-overlay">
+        <span class="gallery-hero-icon" aria-hidden="true">&#9654;</span>
+        <span class="gallery-hero-label">Play the moment</span>
+      </span>
       <figcaption>IrisNoir &amp; Aurelius</figcaption>
-    </figure>
+    </button>
     <figure class="bio-portrait bio-portrait-accent">
       <img src="assets/about/aurey-noir.jpg" alt="Aurelius posed in a noir detective study with irises and a camera-aperture emblem" loading="lazy">
       <figcaption>The IrisNoir aesthetic — irises, shadow, and a little mischief</figcaption>
@@ -236,6 +240,12 @@
   <p class="lightbox-caption" id="lightbox-caption"></p>
   <div class="lightbox-thumbs" id="lightbox-thumbs"></div>
 </div>
+
+<script id="gallery-bio" type="application/json">
+[
+  {"type":"video","src":"assets/about/jena-aurey-bio.mp4","poster":"assets/about/jena-aurey-noir.jpg","caption":"IrisNoir &amp; Aurelius — a quiet moment","tag":"AI-generated"}
+]
+</script>
 
 <script id="gallery-aurey" type="application/json">
 [
