@@ -397,7 +397,13 @@
 .lightbox.active {
   display: flex;
 }
-.lightbox img {
+.lightbox-media {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.lightbox-media img,
+.lightbox-media video {
   max-width: 90vw;
   max-height: 90vh;
   border-radius: 8px;
@@ -411,6 +417,37 @@
   color: white;
   font-size: 2rem;
   cursor: pointer;
+  z-index: 10;
+}
+
+/* Video thumbnail in gallery */
+.gallery-video {
+  position: relative;
+  cursor: pointer;
+}
+.gallery-video img {
+  width: 100%;
+  border-radius: 6px;
+}
+.gallery-video .video-play {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60px;
+  height: 60px;
+  background: rgba(201,168,106,0.9);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  color: var(--noir);
+  transition: transform 0.3s, background 0.3s;
+}
+.gallery-video:hover .video-play {
+  transform: translate(-50%, -50%) scale(1.1);
+  background: var(--gold-bright);
 }
 </style>
 </head>
@@ -496,7 +533,7 @@
     </div>
     <div class="rate-pill" data-rate="monthly">
       <span class="name">Monthly</span>
-      <span class="price">$1,200</span>
+      <span class="price">Custom</span>
     </div>
   </div>
   <p class="rates-note">Usage rights: 3-mo +$150 · 6-mo +$250 · Perpetual +$500</p>
@@ -521,14 +558,16 @@
       <p>Starring Aurelius — genuine reactions, real playtime, authentic pet content.</p>
     </div>
     <div class="modal-gallery">
-      <img src="assets/ugc-portfolio/pet/aurey-portrait.jpg" alt="Aurelius portrait">
-      <img src="assets/ugc-portfolio/pet/aurey-1.jpg" alt="Aurelius">
-      <img src="assets/ugc-portfolio/pet/aurey-2.jpg" alt="Aurelius">
-      <img src="assets/ugc-portfolio/pet/aurey-3.jpg" alt="Aurelius">
-      <img src="assets/ugc-portfolio/pet/aurey-closeup.jpg" alt="Aurelius closeup">
-      <img src="assets/ugc-portfolio/pet/aurey-outdoor.jpg" alt="Aurelius outdoor">
-      <img src="assets/ugc-portfolio/pet/aurey-play.jpg" alt="Aurelius playing">
-      <img src="assets/ugc-portfolio/pet/aurey-detangler.jpg" alt="Doodle Detangler product">
+      <img src="assets/ugc-portfolio/pet/pet-ugc-promo.jpg" alt="Pet UGC promo with Aurelius">
+      <div class="gallery-video" data-video="assets/ugc-portfolio/pet/aurey-video.mp4">
+        <img src="assets/ugc-portfolio/pet/aurey-real-1.jpg" alt="Aurelius with product">
+        <span class="video-play">▶</span>
+      </div>
+      <img src="assets/ugc-portfolio/pet/aurey-real-1.jpg" alt="Aurelius with product">
+      <img src="assets/ugc-portfolio/pet/aurey-real-2.jpg" alt="Aurelius portrait">
+      <img src="assets/ugc-portfolio/pet/aurey-real-3.jpg" alt="Aurelius outdoor">
+      <img src="assets/ugc-portfolio/pet/aurey-real-4.jpg" alt="Aurelius closeup">
+      <img src="assets/ugc-portfolio/pet/aurey-real-5.jpg" alt="Aurelius playing">
     </div>
   </div>
 </div>
@@ -543,6 +582,7 @@
     <div class="modal-gallery">
       <img src="assets/ugc-portfolio/tech/main.jpg" alt="Tech UGC">
       <img src="assets/ugc-portfolio/tech/airpods-product.jpg" alt="AirPods Max product">
+      <img src="assets/ugc-portfolio/tech/tech-apple.jpg" alt="Apple product lifestyle">
     </div>
   </div>
 </div>
@@ -555,10 +595,10 @@
       <p>Product-focused content — skincare, supplements, lifestyle. No face needed, just results.</p>
     </div>
     <div class="modal-gallery">
+      <img src="assets/ugc-portfolio/skincare/burbur-promo.jpg" alt="BurBur Oil promo">
+      <img src="assets/ugc-portfolio/skincare/faceless-1.jpg" alt="Faceless UGC content">
+      <img src="assets/ugc-portfolio/skincare/faceless-2.jpg" alt="Faceless product shot">
       <img src="assets/ugc-portfolio/skincare/main.jpg" alt="Skincare UGC">
-      <img src="assets/ugc-portfolio/skincare/hands.jpg" alt="Skincare hands">
-      <img src="assets/ugc-portfolio/skincare/burbur.jpg" alt="BurBur Hair Oil">
-      <img src="assets/ugc-portfolio/skincare/medicube.jpg" alt="Medicube">
     </div>
   </div>
 </div>
@@ -661,28 +701,28 @@
     <button class="modal-close">&times;</button>
     <div class="modal-header">
       <h2>Monthly Creator Package</h2>
-      <p class="price-big">$1,200/mo</p>
+      <p class="price-big">Custom</p>
       <p class="best-for">For brands that want consistent content every month.</p>
     </div>
     <div class="rate-details">
       <h4>Includes:</h4>
       <ul>
-        <li>8 UGC videos per month</li>
+        <li>Ongoing monthly content production</li>
         <li>Product demos, testimonials, lifestyle</li>
         <li>Hook testing for ads</li>
         <li>Editing included</li>
         <li>Priority turnaround</li>
-        <li>Organic usage rights</li>
+        <li>Usage rights included</li>
       </ul>
-      <a class="cta-btn" href="mailto:irisnoir.co@gmail.com?subject=Monthly%20Creator%20Package%20Inquiry%20%E2%80%94%20%5BYour%20Brand%20Name%5D&body=Hi!%0A%0AI%E2%80%99m%20interested%20in%20the%20Monthly%20Creator%20Package%20(%241%2C200%2Fmo%20%E2%80%94%208%20videos).%0A%0A%E2%80%94%E2%80%94%E2%80%94%E2%80%94%E2%80%94%E2%80%94%E2%80%94%E2%80%94%E2%80%94%E2%80%94%E2%80%94%E2%80%94%E2%80%94%E2%80%94%E2%80%94%0APLEASE%20FILL%20OUT%3A%0A%0ABrand%20Name%3A%20%0AProduct(s)%3A%20%0AProduct%20Link%3A%20%0ANiche%3A%20%5BPet%20%2F%20Tech%20%2F%20Skincare%20%2F%20Other%5D%0AContent%20Goals%3A%0AVideo%20Styles%20Needed%3A%20%5BProduct%20Demo%20%2F%20Testimonial%20%2F%20Lifestyle%20%2F%20Ads%5D%0APreferred%20Posting%20Schedule%3A%0AContract%20Start%20Date%3A%0AShipping%20Address%20Needed%3F%20%5BYes%20%2F%20No%5D%0A%0AAdditional%20Notes%3A%0A%0A%E2%80%94%E2%80%94%E2%80%94%E2%80%94%E2%80%94%E2%80%94%E2%80%94%E2%80%94%E2%80%94%E2%80%94%E2%80%94%E2%80%94%E2%80%94%E2%80%94%E2%80%94%0A%0ALooking%20forward%20to%20working%20together!">Book This Package</a>
+      <a class="cta-btn" href="mailto:irisnoir.co@gmail.com?subject=Monthly%20Creator%20Package%20Inquiry%20%E2%80%94%20%5BYour%20Brand%20Name%5D&body=Hi!%0A%0AI%E2%80%99m%20interested%20in%20the%20Monthly%20Creator%20Package.%0A%0A%E2%80%94%E2%80%94%E2%80%94%E2%80%94%E2%80%94%E2%80%94%E2%80%94%E2%80%94%E2%80%94%E2%80%94%E2%80%94%E2%80%94%E2%80%94%E2%80%94%E2%80%94%0APLEASE%20FILL%20OUT%3A%0A%0ABrand%20Name%3A%20%0AProduct(s)%3A%20%0AProduct%20Link%3A%20%0ANiche%3A%20%5BPet%20%2F%20Tech%20%2F%20Skincare%20%2F%20Other%5D%0AContent%20Goals%3A%0AVideos%20Per%20Month%20(estimate)%3A%0AVideo%20Styles%20Needed%3A%20%5BProduct%20Demo%20%2F%20Testimonial%20%2F%20Lifestyle%20%2F%20Ads%5D%0APreferred%20Posting%20Schedule%3A%0AContract%20Start%20Date%3A%0AShipping%20Address%20Needed%3F%20%5BYes%20%2F%20No%5D%0A%0AAdditional%20Notes%3A%0A%0A%E2%80%94%E2%80%94%E2%80%94%E2%80%94%E2%80%94%E2%80%94%E2%80%94%E2%80%94%E2%80%94%E2%80%94%E2%80%94%E2%80%94%E2%80%94%E2%80%94%E2%80%94%0A%0ALooking%20forward%20to%20working%20together!">Let's Talk</a>
     </div>
   </div>
 </div>
 
-<!-- Lightbox -->
+<!-- Lightbox with video support -->
 <div class="lightbox" id="lightbox">
   <button class="lightbox-close">&times;</button>
-  <img src="" alt="Expanded view">
+  <div class="lightbox-media"></div>
 </div>
 
 <script>
@@ -719,19 +759,31 @@ document.querySelectorAll('.modal-overlay').forEach(modal => {
   });
 });
 
-// Lightbox for gallery images
+// Lightbox for gallery images and videos
 const lightbox = document.getElementById('lightbox');
-const lightboxImg = lightbox.querySelector('img');
+const lightboxMedia = lightbox.querySelector('.lightbox-media');
 
 document.querySelectorAll('.modal-gallery img').forEach(img => {
-  img.addEventListener('click', () => {
-    lightboxImg.src = img.src;
+  if (!img.closest('.gallery-video')) {
+    img.addEventListener('click', () => {
+      lightboxMedia.innerHTML = '<img src="' + img.src + '" alt="' + img.alt + '">';
+      lightbox.classList.add('active');
+    });
+  }
+});
+
+document.querySelectorAll('.gallery-video').forEach(vid => {
+  vid.addEventListener('click', () => {
+    lightboxMedia.innerHTML = '<video controls autoplay playsinline><source src="' + vid.dataset.video + '" type="video/mp4"></video>';
     lightbox.classList.add('active');
   });
 });
 
-lightbox.addEventListener('click', () => {
-  lightbox.classList.remove('active');
+lightbox.addEventListener('click', (e) => {
+  if (e.target === lightbox || e.target === lightbox.querySelector('.lightbox-close')) {
+    lightbox.classList.remove('active');
+    lightboxMedia.innerHTML = '';
+  }
 });
 
 // ESC to close
@@ -739,6 +791,7 @@ document.addEventListener('keydown', (e) => {
   if (e.key === 'Escape') {
     document.querySelectorAll('.modal-overlay.active').forEach(m => m.classList.remove('active'));
     lightbox.classList.remove('active');
+    lightboxMedia.innerHTML = '';
     document.body.style.overflow = '';
   }
 });
