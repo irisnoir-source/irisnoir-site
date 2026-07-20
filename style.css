@@ -395,6 +395,148 @@ h2 {
   .bio { grid-template-columns: 1fr; }
 }
 
+/* ============================================
+   UGC Creator Section — lighter iris palette
+   ============================================ */
+.section-ugc {
+  background:
+    radial-gradient(ellipse 80% 50% at 20% 0%, rgba(157,124,196,0.22), transparent 55%),
+    radial-gradient(ellipse 60% 40% at 85% 100%, rgba(138,99,176,0.18), transparent 50%),
+    linear-gradient(175deg, #1a1520 0%, #0d0a12 100%);
+}
+.section-ugc .eyebrow { color: var(--iris-soft); }
+.ugc-intro { max-width: 62ch; margin-top: 0.5rem; }
+
+/* Niche cards row */
+.ugc-niches {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.8rem;
+  margin-top: 3rem;
+}
+.ugc-niche {
+  background: rgba(26,21,32,0.7);
+  border: 1px solid rgba(138,99,176,0.25);
+  border-radius: 8px;
+  overflow: hidden;
+  transition: border-color 0.3s, transform 0.3s;
+}
+.ugc-niche:hover {
+  border-color: var(--iris-soft);
+  transform: translateY(-4px);
+}
+.ugc-niche-img {
+  height: 220px;
+  overflow: hidden;
+  background: linear-gradient(135deg, #1e1926, #16121d);
+}
+.ugc-niche-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s;
+}
+.ugc-niche:hover .ugc-niche-img img { transform: scale(1.04); }
+.ugc-niche-img-faceless {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background:
+    radial-gradient(circle at 50% 50%, rgba(138,99,176,0.35), transparent 70%),
+    linear-gradient(135deg, #1e1926, #16121d);
+}
+.faceless-icon {
+  font-size: 4rem;
+  color: var(--iris-soft);
+  opacity: 0.6;
+}
+.ugc-niche-info { padding: 1.4rem 1.6rem 1.8rem; }
+.ugc-niche-info h3 {
+  font-family: var(--serif);
+  font-size: 1.4rem;
+  color: var(--cream);
+  margin-bottom: 0.6rem;
+}
+.ugc-niche-info p {
+  color: var(--text-dim);
+  font-size: 0.88rem;
+  line-height: 1.55;
+  margin-bottom: 1rem;
+}
+.ugc-formats {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.ugc-formats li {
+  padding: 0.3rem 0.7rem;
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  background: rgba(138,99,176,0.18);
+  border: 1px solid rgba(138,99,176,0.3);
+  border-radius: 3px;
+  color: var(--iris-soft);
+}
+
+/* UGC Packages */
+.ugc-packages { margin-top: 4rem; }
+.ugc-packages-title {
+  font-family: var(--serif);
+  font-size: 1.6rem;
+  color: var(--cream);
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+.ugc-cards { gap: 1.2rem; }
+.ugc-card {
+  background: rgba(22,18,29,0.85);
+  border-color: rgba(138,99,176,0.2);
+}
+.ugc-card:hover { border-color: var(--iris-soft); }
+.ugc-card.card-featured { border-color: var(--iris-soft); }
+.ugc-best-for {
+  display: block;
+  margin-top: 1rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--iris-soft);
+}
+
+/* UGC CTA */
+.ugc-cta {
+  margin-top: 3.5rem;
+  text-align: center;
+  padding: 2.5rem;
+  background: rgba(138,99,176,0.08);
+  border: 1px solid rgba(138,99,176,0.2);
+  border-radius: 8px;
+}
+.ugc-cta-hook {
+  font-family: var(--serif);
+  font-size: 1.3rem;
+  color: var(--cream);
+  margin-bottom: 1.2rem;
+}
+.btn-iris {
+  background: var(--iris-soft);
+  color: #fff;
+  border: 1px solid var(--iris-soft);
+}
+.btn-iris:hover {
+  background: var(--iris);
+  border-color: var(--iris);
+}
+
+@media (max-width: 900px) {
+  .ugc-niches { grid-template-columns: 1fr; max-width: 420px; margin-left: auto; margin-right: auto; }
+}
+@media (max-width: 760px) {
+  .ugc-cards { grid-template-columns: 1fr; }
+}
+
 /* Gallery hero thumbnail */
 .gallery-hero {
   position: relative;
