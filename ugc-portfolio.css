@@ -1,0 +1,315 @@
+/* UGC Portfolio Page — dedicated styles */
+
+/* Hero / Intro */
+.portfolio-hero {
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+  padding: 8rem 6vw 4rem;
+  background:
+    radial-gradient(ellipse 60% 45% at 72% 40%, rgba(138,99,176,0.35), transparent 70%),
+    radial-gradient(ellipse 70% 50% at 20% 80%, rgba(109,74,148,0.18), transparent 60%),
+    var(--noir);
+}
+.portfolio-hero-inner {
+  max-width: 1080px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+.portfolio-hero-img {
+  margin: 0;
+}
+.portfolio-hero-img img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  border: 1px solid rgba(201,168,106,0.25);
+}
+.portfolio-hero-text h1 {
+  font-family: var(--serif);
+  font-size: 3rem;
+  color: var(--cream);
+  letter-spacing: 0.15em;
+  margin-bottom: 0.3rem;
+}
+.portfolio-location {
+  font-size: 0.9rem;
+  color: var(--text-dim);
+  margin-bottom: 1.2rem;
+}
+.portfolio-pitch {
+  font-size: 1rem;
+  color: var(--text);
+  line-height: 1.7;
+  max-width: 52ch;
+  margin-bottom: 1.5rem;
+}
+.portfolio-socials {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.2rem;
+}
+.portfolio-socials a {
+  color: var(--gold);
+  text-decoration: none;
+  font-size: 0.85rem;
+  letter-spacing: 0.05em;
+  border-bottom: 1px solid rgba(201,168,106,0.3);
+  transition: border-color 0.2s;
+}
+.portfolio-socials a:hover {
+  border-bottom-color: var(--gold-bright);
+}
+
+/* Sections */
+.portfolio-section {
+  padding: 5rem 6vw;
+}
+.portfolio-section-alt {
+  background:
+    radial-gradient(ellipse 60% 40% at 80% 10%, rgba(109,74,148,0.12), transparent 55%),
+    var(--noir-2);
+}
+
+/* Niche blocks */
+.portfolio-niche {
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(201,168,106,0.15);
+}
+.portfolio-niche:first-of-type {
+  margin-top: 2.5rem;
+}
+.portfolio-niche h3 {
+  font-family: var(--serif);
+  font-size: 1.5rem;
+  color: var(--cream);
+  margin-bottom: 0.5rem;
+}
+.niche-desc {
+  color: var(--text-dim);
+  font-size: 0.9rem;
+  max-width: 60ch;
+  margin-bottom: 1.5rem;
+}
+
+/* Video grid */
+.video-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+.video-card {
+  background: var(--noir-3);
+  border: 1px solid rgba(201,168,106,0.15);
+  border-radius: 6px;
+  overflow: hidden;
+  transition: border-color 0.3s, transform 0.3s;
+}
+.video-card:hover {
+  border-color: rgba(201,168,106,0.4);
+  transform: translateY(-3px);
+}
+.video-card-pending {
+  opacity: 0.6;
+  border-style: dashed;
+}
+.video-card-pending:hover {
+  transform: none;
+  border-color: rgba(201,168,106,0.15);
+}
+.video-placeholder video {
+  width: 100%;
+  aspect-ratio: 9 / 16;
+  object-fit: cover;
+  display: block;
+  background: #0a0a0c;
+}
+.video-placeholder-empty {
+  width: 100%;
+  aspect-ratio: 9 / 16;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(145deg, #16121d, #0d0a12);
+  color: var(--text-dim);
+}
+.placeholder-icon {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+  opacity: 0.5;
+}
+.placeholder-label {
+  font-size: 0.78rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.video-format {
+  display: block;
+  padding: 0.8rem 1rem 0;
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+.video-caption {
+  padding: 0.3rem 1rem 1rem;
+  font-size: 0.88rem;
+  color: var(--text-dim);
+}
+
+/* More coming */
+.more-coming {
+  margin-top: 3rem;
+  padding: 1.5rem 2rem;
+  background: rgba(138,99,176,0.12);
+  border: 1px solid rgba(138,99,176,0.25);
+  border-radius: 6px;
+  text-align: center;
+  color: var(--iris-soft);
+  font-size: 0.92rem;
+  letter-spacing: 0.03em;
+}
+
+/* Pic grid */
+.pic-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2.5rem;
+}
+.pic-card {
+  margin: 0;
+  border-radius: 6px;
+  overflow: hidden;
+  border: 1px solid rgba(201,168,106,0.18);
+  background: var(--noir-3);
+  transition: border-color 0.3s, transform 0.3s;
+}
+.pic-card:hover {
+  border-color: rgba(201,168,106,0.45);
+  transform: translateY(-3px);
+}
+.pic-card img {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  display: block;
+}
+.pic-card figcaption {
+  padding: 0.9rem 1rem;
+  font-size: 0.85rem;
+  color: var(--text-dim);
+}
+
+/* About grid */
+.about-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 2.5rem;
+}
+.about-block {
+  background: var(--noir-3);
+  border: 1px solid rgba(201,168,106,0.12);
+  border-radius: 6px;
+  padding: 1.8rem 2rem;
+}
+.about-block h3 {
+  font-family: var(--serif);
+  font-size: 1.2rem;
+  color: var(--cream);
+  margin-bottom: 1rem;
+}
+.about-block ul {
+  list-style: none;
+  padding: 0;
+}
+.about-block li {
+  position: relative;
+  padding-left: 1.2rem;
+  margin-bottom: 0.7rem;
+  color: var(--text);
+  font-size: 0.92rem;
+  line-height: 1.6;
+}
+.about-block li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: var(--gold);
+}
+
+/* CTA section */
+.portfolio-cta {
+  text-align: center;
+  background:
+    radial-gradient(ellipse 50% 60% at 50% 100%, rgba(138,99,176,0.25), transparent 65%),
+    var(--noir);
+  padding: 6rem 6vw;
+}
+.portfolio-cta h2 {
+  margin-bottom: 0.8rem;
+}
+.portfolio-cta p {
+  color: var(--text-dim);
+  margin-bottom: 2rem;
+}
+.portfolio-cta .btn {
+  margin-bottom: 1.5rem;
+}
+.cta-socials {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+.cta-socials a {
+  color: var(--text-dim);
+  text-decoration: none;
+  font-size: 0.82rem;
+  letter-spacing: 0.08em;
+  transition: color 0.2s;
+}
+.cta-socials a:hover {
+  color: var(--gold-bright);
+}
+
+/* Footer tweaks for portfolio page */
+.footer a {
+  color: var(--text-dim);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(201,168,106,0.3);
+}
+.footer a:hover {
+  color: var(--gold-bright);
+  border-bottom-color: var(--gold-bright);
+}
+
+/* Mobile */
+@media (max-width: 760px) {
+  .portfolio-hero-inner {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  .portfolio-hero-img {
+    max-width: 220px;
+    margin: 0 auto;
+  }
+  .portfolio-pitch {
+    max-width: none;
+  }
+  .portfolio-socials {
+    justify-content: center;
+  }
+  .portfolio-section {
+    padding: 3.5rem 5vw;
+  }
+  .video-grid {
+    grid-template-columns: 1fr;
+  }
+}
