@@ -205,19 +205,17 @@
   gap: 1rem;
   padding: 1.5rem 2rem 2rem;
 }
-.modal-gallery img,
-.modal-gallery video {
+.modal-gallery img {
   width: 100%;
   border-radius: 6px;
   cursor: pointer;
   transition: transform 0.2s;
 }
-.modal-gallery img:hover,
-.modal-gallery video:hover {
+.modal-gallery img:hover {
   transform: scale(1.03);
 }
 
-/* Rates Section - Compact */
+/* Rates Section - Interactive */
 .rates-section {
   padding: 4rem 2rem;
   background: var(--noir);
@@ -238,7 +236,7 @@
 .rates-row {
   display: flex;
   justify-content: center;
-  gap: 1.5rem;
+  gap: 1rem;
   flex-wrap: wrap;
   max-width: 1000px;
   margin: 0 auto;
@@ -251,7 +249,8 @@
   display: flex;
   align-items: center;
   gap: 0.8rem;
-  transition: border-color 0.3s, transform 0.3s;
+  cursor: pointer;
+  transition: border-color 0.3s, transform 0.3s, background 0.3s;
 }
 .rate-pill:hover {
   border-color: var(--gold);
@@ -275,6 +274,72 @@
   margin-top: 1.5rem;
   font-size: 0.8rem;
   color: var(--text-dim);
+}
+
+/* Rate Detail Modal */
+.rate-modal {
+  max-width: 500px;
+}
+.rate-modal .modal-header {
+  text-align: center;
+}
+.rate-modal .modal-header .price-big {
+  font-family: var(--serif);
+  font-size: 2.5rem;
+  color: var(--gold-bright);
+  margin: 0.5rem 0;
+}
+.rate-modal .modal-header .best-for {
+  font-size: 0.85rem;
+  color: var(--gold);
+  font-style: italic;
+}
+.rate-modal .rate-details {
+  padding: 1.5rem 2rem 2rem;
+}
+.rate-modal .rate-details h4 {
+  font-family: var(--serif);
+  font-size: 1rem;
+  color: var(--cream);
+  margin-bottom: 0.8rem;
+}
+.rate-modal .rate-details ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.rate-modal .rate-details li {
+  position: relative;
+  padding-left: 1.2rem;
+  margin-bottom: 0.6rem;
+  color: var(--text);
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+.rate-modal .rate-details li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: var(--gold);
+}
+.rate-modal .cta-btn {
+  display: block;
+  width: 100%;
+  margin-top: 1.5rem;
+  padding: 0.9rem;
+  background: var(--gold);
+  color: var(--noir);
+  border: none;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  transition: background 0.3s;
+}
+.rate-modal .cta-btn:hover {
+  background: var(--gold-bright);
 }
 
 /* CTA */
@@ -332,8 +397,7 @@
 .lightbox.active {
   display: flex;
 }
-.lightbox img,
-.lightbox video {
+.lightbox img {
   max-width: 90vw;
   max-height: 90vh;
   border-radius: 8px;
@@ -364,7 +428,7 @@
 <!-- HERO -->
 <header class="ugc-hero">
   <div class="ugc-hero-bg">
-    <img src="assets/ugc-portfolio/hero.png" alt="IrisNoir UGC Creator">
+    <img src="assets/ugc-portfolio/hero.jpg" alt="IrisNoir UGC Creator">
   </div>
   <div class="ugc-hero-content">
     <h1>IrisNoir</h1>
@@ -382,16 +446,14 @@
 <section class="niches-section" id="niches">
   <h2>My Work</h2>
   <div class="niches-grid">
-    
     <div class="niche-card" data-modal="pet">
-      <img src="assets/ugc-portfolio/hero.png" alt="Pet UGC">
+      <img src="assets/ugc-portfolio/hero.jpg" alt="Pet UGC">
       <div class="niche-card-overlay">
         <h3>🐾 Pet UGC</h3>
         <p>Starring Aurelius the aussiedoodle</p>
         <span class="expand-hint">Click to view →</span>
       </div>
     </div>
-    
     <div class="niche-card" data-modal="tech">
       <img src="assets/ugc-portfolio/tech/main.jpg" alt="Tech UGC">
       <div class="niche-card-overlay">
@@ -400,7 +462,6 @@
         <span class="expand-hint">Click to view →</span>
       </div>
     </div>
-    
     <div class="niche-card" data-modal="skincare">
       <img src="assets/ugc-portfolio/skincare/main.jpg" alt="Skincare UGC">
       <div class="niche-card-overlay">
@@ -409,30 +470,33 @@
         <span class="expand-hint">Click to view →</span>
       </div>
     </div>
-    
   </div>
 </section>
 
-<!-- RATES - Compact Pills -->
+<!-- RATES - Interactive Pills -->
 <section class="rates-section" id="rates">
   <h2>Rates</h2>
-  <p class="subtitle">Starting packages — custom quotes available</p>
+  <p class="subtitle">Click any package to see what's included</p>
   <div class="rates-row">
-    <div class="rate-pill">
-      <span class="name">Starter (1 video)</span>
-      <span class="price">$150</span>
+    <div class="rate-pill" data-rate="starter">
+      <span class="name">Starter</span>
+      <span class="price">$175</span>
     </div>
-    <div class="rate-pill featured">
-      <span class="name">Growth (3 videos)</span>
+    <div class="rate-pill featured" data-rate="growth">
+      <span class="name">Growth</span>
       <span class="price">$350</span>
     </div>
-    <div class="rate-pill">
-      <span class="name">Brand Builder (5 videos)</span>
+    <div class="rate-pill" data-rate="builder">
+      <span class="name">Brand Builder</span>
       <span class="price">$650</span>
     </div>
-    <div class="rate-pill">
-      <span class="name">UGC Ads (2 ad-ready)</span>
+    <div class="rate-pill" data-rate="ads">
+      <span class="name">UGC Ads</span>
       <span class="price">$450</span>
+    </div>
+    <div class="rate-pill" data-rate="monthly">
+      <span class="name">Monthly</span>
+      <span class="price">$1,200</span>
     </div>
   </div>
   <p class="rates-note">Usage rights: 3-mo +$150 · 6-mo +$250 · Perpetual +$500</p>
@@ -448,7 +512,7 @@
   <a href="index.html">← Back to IrisNoir</a>
 </footer>
 
-<!-- MODALS -->
+<!-- NICHE MODALS -->
 <div class="modal-overlay" id="modal-pet">
   <div class="modal-content">
     <button class="modal-close">&times;</button>
@@ -457,7 +521,7 @@
       <p>Starring Aurelius — genuine reactions, real playtime, authentic pet content.</p>
     </div>
     <div class="modal-gallery">
-      <video src="assets/ugc-portfolio/pet/aurey-video.mp4" controls poster="assets/ugc-portfolio/pet/aurey-1.jpg"></video>
+      <img src="assets/ugc-portfolio/pet/aurey-portrait.jpg" alt="Aurelius portrait">
       <img src="assets/ugc-portfolio/pet/aurey-1.jpg" alt="Aurelius">
       <img src="assets/ugc-portfolio/pet/aurey-2.jpg" alt="Aurelius">
       <img src="assets/ugc-portfolio/pet/aurey-3.jpg" alt="Aurelius">
@@ -478,7 +542,6 @@
     </div>
     <div class="modal-gallery">
       <img src="assets/ugc-portfolio/tech/main.jpg" alt="Tech UGC">
-      <img src="assets/ugc-portfolio/tech/airpods-1.jpg" alt="AirPods Max">
       <img src="assets/ugc-portfolio/tech/airpods-product.jpg" alt="AirPods Max product">
     </div>
   </div>
@@ -493,9 +556,125 @@
     </div>
     <div class="modal-gallery">
       <img src="assets/ugc-portfolio/skincare/main.jpg" alt="Skincare UGC">
-      <img src="assets/ugc-portfolio/skincare/fygg.jpg" alt="Fygg Supplements">
+      <img src="assets/ugc-portfolio/skincare/hands.jpg" alt="Skincare hands">
       <img src="assets/ugc-portfolio/skincare/burbur.jpg" alt="BurBur Hair Oil">
       <img src="assets/ugc-portfolio/skincare/medicube.jpg" alt="Medicube">
+    </div>
+  </div>
+</div>
+
+<!-- RATE MODALS -->
+<div class="modal-overlay" id="modal-rate-starter">
+  <div class="modal-content rate-modal">
+    <button class="modal-close">&times;</button>
+    <div class="modal-header">
+      <h2>Starter Package</h2>
+      <p class="price-big">$175</p>
+      <p class="best-for">Perfect for brands wanting authentic content to test with their audience.</p>
+    </div>
+    <div class="rate-details">
+      <h4>Includes:</h4>
+      <ul>
+        <li>1 UGC video (15–30 seconds)</li>
+        <li>Talking head or product demo</li>
+        <li>Basic editing</li>
+        <li>1 revision</li>
+        <li>Organic usage rights</li>
+      </ul>
+      <a class="cta-btn" href="mailto:irisnoir.co@gmail.com?subject=Starter%20Package%20Inquiry">Book This Package</a>
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modal-rate-growth">
+  <div class="modal-content rate-modal">
+    <button class="modal-close">&times;</button>
+    <div class="modal-header">
+      <h2>Growth Package</h2>
+      <p class="price-big">$350</p>
+      <p class="best-for">Great for brands that want multiple pieces of content for their marketing.</p>
+    </div>
+    <div class="rate-details">
+      <h4>Includes:</h4>
+      <ul>
+        <li>3 UGC videos (15–30 seconds each)</li>
+        <li>Mix of product demo, lifestyle, or testimonial</li>
+        <li>Hook + call-to-action</li>
+        <li>Basic editing</li>
+        <li>2 revisions</li>
+        <li>Organic usage rights</li>
+      </ul>
+      <a class="cta-btn" href="mailto:irisnoir.co@gmail.com?subject=Growth%20Package%20Inquiry">Book This Package</a>
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modal-rate-builder">
+  <div class="modal-content rate-modal">
+    <button class="modal-close">&times;</button>
+    <div class="modal-header">
+      <h2>Brand Builder Package</h2>
+      <p class="price-big">$650</p>
+      <p class="best-for">Designed for brands that want consistent, high-performing content.</p>
+    </div>
+    <div class="rate-details">
+      <h4>Includes:</h4>
+      <ul>
+        <li>5 UGC videos (15–45 seconds)</li>
+        <li>Multiple hooks for testing</li>
+        <li>Product demo + lifestyle footage</li>
+        <li>Script support if needed</li>
+        <li>Basic editing</li>
+        <li>2 revisions</li>
+        <li>Organic usage rights</li>
+      </ul>
+      <a class="cta-btn" href="mailto:irisnoir.co@gmail.com?subject=Brand%20Builder%20Package%20Inquiry">Book This Package</a>
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modal-rate-ads">
+  <div class="modal-content rate-modal">
+    <button class="modal-close">&times;</button>
+    <div class="modal-header">
+      <h2>UGC Ads Package</h2>
+      <p class="price-big">$450</p>
+      <p class="best-for">Content specifically designed for paid ads.</p>
+    </div>
+    <div class="rate-details">
+      <h4>Includes:</h4>
+      <ul>
+        <li>2 UGC ad-style videos (20–45 seconds)</li>
+        <li>Hook focused for conversions</li>
+        <li>Script provided or co-created</li>
+        <li>CTA optimized for ads</li>
+        <li>2 revisions</li>
+        <li>30-day paid usage rights</li>
+      </ul>
+      <a class="cta-btn" href="mailto:irisnoir.co@gmail.com?subject=UGC%20Ads%20Package%20Inquiry">Book This Package</a>
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modal-rate-monthly">
+  <div class="modal-content rate-modal">
+    <button class="modal-close">&times;</button>
+    <div class="modal-header">
+      <h2>Monthly Creator Package</h2>
+      <p class="price-big">$1,200/mo</p>
+      <p class="best-for">For brands that want consistent content every month.</p>
+    </div>
+    <div class="rate-details">
+      <h4>Includes:</h4>
+      <ul>
+        <li>8 UGC videos per month</li>
+        <li>Product demos, testimonials, lifestyle</li>
+        <li>Hook testing for ads</li>
+        <li>Editing included</li>
+        <li>Priority turnaround</li>
+        <li>Organic usage rights</li>
+      </ul>
+      <a class="cta-btn" href="mailto:irisnoir.co@gmail.com?subject=Monthly%20Package%20Inquiry">Book This Package</a>
     </div>
   </div>
 </div>
@@ -507,15 +686,23 @@
 </div>
 
 <script>
-// Modal open/close
+// Niche modal open/close
 document.querySelectorAll('.niche-card').forEach(card => {
   card.addEventListener('click', () => {
-    const modalId = 'modal-' + card.dataset.modal;
-    document.getElementById(modalId).classList.add('active');
+    document.getElementById('modal-' + card.dataset.modal).classList.add('active');
     document.body.style.overflow = 'hidden';
   });
 });
 
+// Rate modal open
+document.querySelectorAll('.rate-pill').forEach(pill => {
+  pill.addEventListener('click', () => {
+    document.getElementById('modal-rate-' + pill.dataset.rate).classList.add('active');
+    document.body.style.overflow = 'hidden';
+  });
+});
+
+// Close modals
 document.querySelectorAll('.modal-close').forEach(btn => {
   btn.addEventListener('click', () => {
     btn.closest('.modal-overlay').classList.remove('active');
