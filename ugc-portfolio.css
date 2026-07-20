@@ -290,6 +290,95 @@
   border-bottom-color: var(--gold-bright);
 }
 
+/* Rates grid */
+.rates-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.4rem;
+  margin-top: 2.5rem;
+}
+.rate-card {
+  background: var(--noir-3);
+  border: 1px solid rgba(201,168,106,0.15);
+  border-radius: 6px;
+  padding: 1.8rem 1.6rem;
+  transition: border-color 0.3s, transform 0.3s;
+}
+.rate-card:hover {
+  border-color: rgba(201,168,106,0.4);
+  transform: translateY(-3px);
+}
+.rate-card-featured {
+  border-color: var(--gold);
+  background: rgba(201,168,106,0.06);
+}
+.rate-card h3 {
+  font-family: var(--serif);
+  font-size: 1.3rem;
+  color: var(--cream);
+  margin-bottom: 0.4rem;
+}
+.rate-price {
+  font-family: var(--serif);
+  font-size: 1.8rem;
+  color: var(--gold-bright);
+  margin-bottom: 1rem;
+}
+.rate-card ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1rem 0;
+}
+.rate-card li {
+  position: relative;
+  padding-left: 1rem;
+  margin-bottom: 0.5rem;
+  color: var(--text);
+  font-size: 0.88rem;
+  line-height: 1.5;
+}
+.rate-card li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: var(--gold);
+}
+.rate-best {
+  display: block;
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  padding-top: 0.8rem;
+  border-top: 1px solid rgba(201,168,106,0.12);
+}
+.rates-addons {
+  margin-top: 2.5rem;
+  padding: 1.4rem 2rem;
+  background: rgba(138,99,176,0.1);
+  border: 1px solid rgba(138,99,176,0.2);
+  border-radius: 6px;
+  text-align: center;
+}
+.rates-addons h4 {
+  font-family: var(--serif);
+  font-size: 1.1rem;
+  color: var(--cream);
+  margin-bottom: 0.6rem;
+}
+.rates-addons p {
+  color: var(--text-dim);
+  font-size: 0.9rem;
+}
+.rates-addons strong {
+  color: var(--gold-bright);
+}
+
+/* Video placeholder single */
+.video-grid-placeholder {
+  max-width: 320px;
+}
+
 /* Mobile */
 @media (max-width: 760px) {
   .portfolio-hero-inner {
